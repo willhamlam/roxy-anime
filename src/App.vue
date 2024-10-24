@@ -91,7 +91,8 @@ onBeforeUnmount(() => {
       <button @click="toggleScale" style="margin-top: 20px">Toggle Scale</button>
     </section>
     <section class="hero">
-      <header>
+      <div class="mask"></div>
+      <!-- <header>
         <div class="nav-item">
           <img src="./assets/lumi-logo.png" alt="" class="logo" />
         </div>
@@ -105,18 +106,19 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="nav-item"></div>
-      </header>
-      <div class="content">
+      </header> -->
+      <!-- <div class="content">
         <h1 class="archivo archivo-700 title">
           One-stop solution for your<br />
           E-Commerce
         </h1>
         <img src="./assets/fake-buttons.png" alt="" class="fake-buttons" />
       </div>
-      <img src="./assets/peek.png" alt="" class="peek" />
+      <img src="./assets/peek.png" alt="" class="peek" /> -->
       <div class="bg"></div>
       <div class="bg bg2"></div>
       <div class="bg bg3"></div>
+      <div class="mask"></div>
     </section>
     <section>
       <img v-prlx="{ speed: 0.05, reverse: true }" src="./assets/bg-bt.png" class="platform" />
@@ -249,11 +251,17 @@ section {
   display: block;
   margin: 0 auto 2rem;
 } */
-
+.mask {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
+}
 .bg {
-  animation: slide 10s ease-in-out infinite alternate;
+  animation: slide 15s ease-in-out infinite alternate;
   background-image: linear-gradient(
-    -30deg,
+    -60deg,
     rgba(193, 235, 255, 0.5) 50%,
     rgba(255, 255, 255, 0.4) 50%
   );
@@ -268,19 +276,35 @@ section {
 
 .bg2 {
   animation-direction: alternate-reverse;
-  animation-duration: 20s;
+  animation-duration: 10s;
+  left: -80%;
+  right: -70%;
 }
 
 .bg3 {
-  animation-duration: 30s;
+  animation: slide3 20s ease-in-out infinite alternate;
+  left: -30%;
+  right: -70%;
 }
 
 @keyframes slide {
   0% {
-    transform: translateX(-25%);
+    transform: translateX(-20%);
   }
   100% {
-    transform: translateX(25%);
+    transform: translateX(20%);
+  }
+}
+
+@keyframes slide3 {
+  0% {
+    transform: translateX(-10%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(-10%);
   }
 }
 
